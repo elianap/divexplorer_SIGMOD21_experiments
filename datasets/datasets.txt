@@ -1,0 +1,5 @@
+COMPAS: https://github.com/propublica/compas-analysis/blob/master/compas-scores-two-years.csv
+Adult: https://archive.ics.uci.edu/ml/datasets/adult
+Heart: https://archive.ics.uci.edu/ml/datasets/heart+disease
+German: https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)
+Bank: https://archive.ics.uci.edu/ml/datasets/bank+marketing

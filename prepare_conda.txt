@@ -1,0 +1,10 @@
+# Create the environment
+
+conda create -n divexplorer-exp python=3
+
+# To activate the environment:
+
+source activate divexplorer-exp
+
+# Install requirements
+pip install -r ./requirements.txt
