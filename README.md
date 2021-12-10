@@ -1,8 +1,8 @@
 # DivExplorer - SIGMOD 2021 - Reproducibility report
 
+This repository contains the code to run and reproduce the experiments present in our **[SIGMOD 2021 paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)** "Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence".
 
-
-* Read the **[full paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)**.
+If you are interested in using DivExplorer, please refer to **[this repository](https://github.com/elianap/divexplorer)** and the corresponding **[PyPi package](https://github.com/elianap/divexplorer)**.
 
 ## Setting the environment
 
@@ -95,6 +95,8 @@ We run ALL experiments, producing all the figures and tables reported in the pap
 python run_experiments.py
 ```
 
+The results are stored in the ./output folder. Specifically, we will find in ./output/figures all the figures (in pdf format) and in ./output/tables all the tables (in csv format) reported in the paper
+
 ### Running specific experiments
 
 We can also reproduce specific results. 
@@ -113,6 +115,7 @@ python E01_compas.py
 
 ```
 
+The script generates all the experiments associated with the COMPAS dataset. Specifically, it generates "table_1", "table_2", "table_3", "figure_1", "figure_2", "figure_3", "figure_5"of the paper.
 
 #### Running adult experiments
 
@@ -123,13 +126,16 @@ python E02_adult.py
 
 ```
 
+The script generates all the experiments associated with the adult dataset. Specifically, it generates "table_5", "table_6",  "figure_8", "figure_9", "figure_11" of the paper.
+
 ## Contributors
 
-[Eliana Pastor][eliana], [Elena Baralis][baralis] and [Luca de Alfaro][luca].
+[Eliana Pastor][eliana], [Elena Baralis][elena] and [Luca de Alfaro][luca].
 
-## Citation
-```
 
-```
 
 [eliana]: https://smartdata.polito.it/members/eliana-pastor/ "Eliana Pastor"
+
+[elena]: https://smartdata.polito.it/members/elena-baralis/ "Elena Baralis"
+
+[luca]: https://luca.dealfaro.com/ "Luca de Alfaro"
