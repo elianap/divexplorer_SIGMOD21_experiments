@@ -1,6 +1,6 @@
 # Create the environment
 
-conda create -n divexplorer-exp python=3
+conda create -n divexplorer-exp python=3.6.10
 
 # To activate the environment:
 
