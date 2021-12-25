@@ -292,8 +292,8 @@ def compareShapleyValues(
             k: v for k, v in sorted(sh_score_2.items(), key=lambda item: item[1])
         }
         sh_score_1 = {k: sh_score_1[k] for k in sorted(sh_score_2, key=sh_score_2.get)}
-    fig = plt.figure(1)
-    fig, (ax1, ax2) = plt.subplots(1, 2)
+    # fig = plt.figure(1)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=sizeFig, dpi=100)
 
     # ax1 = fig.add_subplot(121)
     ax1.barh(
@@ -337,6 +337,8 @@ def compareShapleyValues(
     ax1.tick_params(axis="y", labelsize=labelsize)
     if pad:
         fig.tight_layout(pad=pad)
+    else:
+        fig.tight_layout()
 
     s1 = "(a)" if subcaption else ""  # r"$\bf{(a)}$"
     s2 = "(b)" if subcaption else ""  # r"$\bf{(b)}$"
@@ -348,7 +350,7 @@ def compareShapleyValues(
         ax1.xaxis.set_major_formatter(major_formatter)
         ax2.xaxis.set_major_formatter(major_formatter)
 
-    plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+    # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
     # print(ax1.get_xlim())
     # print(ax2.get_xlim())
     if saveFig:
@@ -395,7 +397,7 @@ def plotComparisonShapleyValues(
     sh_score_1 = {k: v for k, v in sorted(sh_score_1.items(), key=lambda item: item[1])}
     sh_score_2 = {k: v for k, v in sorted(sh_score_2.items(), key=lambda item: item[1])}
 
-    fig, (ax1, ax2) = plt.subplots(1, 2)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=sizeFig, dpi=100)
 
     ax1.barh(
         range(len(sh_score_1)),
@@ -452,7 +454,7 @@ def plotComparisonShapleyValues(
         ax1.xaxis.set_major_formatter(major_formatter)
         ax2.xaxis.set_major_formatter(major_formatter)
 
-    plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+    # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
     # print(ax1.get_xlim())
     # print(ax2.get_xlim())
     if saveFig:

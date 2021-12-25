@@ -207,7 +207,7 @@ def compas_experiments(
             sharedAxis=False,
             height=0.8,
             linewidth=0.8,
-            sizeFig=(7, 7),
+            sizeFig=(10, 10),
             saveFig=False,
             nameFig=None,
             labelsize=10,
@@ -229,7 +229,7 @@ def compas_experiments(
             sh_score_2 = {
                 k: v for k, v in sorted(sh_score_2.items(), key=lambda item: item[1])
             }
-            fig, (ax1, ax2) = plt.subplots(1, 2)
+            fig, (ax1, ax2) = plt.subplots(1, 2, figsize=sizeFig, dpi=100)
 
             b1 = ax1.barh(
                 range(len(sh_score_1)),
@@ -279,8 +279,8 @@ def compas_experiments(
                 ax1.set_xlabel("(a)", size=labelsize)
                 ax2.set_xlabel("(b)", size=labelsize)
 
-            plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
-
+            # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+            fig.tight_layout()
             if saveFig:
                 nameFig = "./shap.pdf" if nameFig is None else f"{nameFig}.pdf"
                 plt.savefig(nameFig, format="pdf", bbox_inches="tight", pad=0.01)
@@ -518,7 +518,7 @@ def compas_experiments(
             shap_itemset_top_fnr,
             height=0.4,
             sharedAxis=False,
-            sizeFig=(5.2, 1.8),
+            sizeFig=(5.2, 2.2),
             title=[t1, t2],
             saveFig=True,
             nameFig=output_file_name,

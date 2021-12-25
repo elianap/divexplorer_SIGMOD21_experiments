@@ -40,7 +40,7 @@ def plotDicts(
     limit=None,
     nameFig="",
     colorMap="tab10",
-    sizeFig=(4, 3),
+    sizeFig=(5, 4),
     labelSize=8,
     markersize=4,
     outside=False,
@@ -55,7 +55,7 @@ def plotDicts(
     import matplotlib.pyplot as plt
     import numpy as np
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=sizeFig, dpi=100)
 
     m_i = 0
     markers = [
@@ -107,7 +107,8 @@ def plotDicts(
         xt = list(info_dict.keys())
         plt.xticks([xt[i] for i in range(0, len(xt)) if i == 0 or xt[i] * 100 % 5 == 0])
 
-    plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+    # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+    fig.tight_layout()
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)

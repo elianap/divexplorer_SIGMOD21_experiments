@@ -191,7 +191,7 @@ def redundancy_experiments(
         "P",
         "X",
     ]
-    fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+    fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True, figsize=sizeFig, dpi=100)
 
     for label, info_dict in info_dicts.items():
         ax1.plot(
@@ -215,7 +215,7 @@ def redundancy_experiments(
 
     plt.rcParams["axes.prop_cycle"] = cycler.cycler(color=plt.get_cmap("tab10").colors)
 
-    plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+    # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
     ax1.set_xlabel(f"{xlabel}\n\n(a)")
     ax2.set_xlabel(f"{xlabel}\n\n(b)")
     ax1.set_yscale("log")

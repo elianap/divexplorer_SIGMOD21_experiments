@@ -231,7 +231,7 @@ def adult_experiments(
             shap_itemset_top_fnr,
             height=0.4,
             sharedAxis=False,
-            sizeFig=(5.2, 1.8),
+            sizeFig=(5.2, 2.2),
             title=[t1, t2],
             saveFig=True,
             nameFig=output_file_name,
