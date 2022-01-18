@@ -185,7 +185,10 @@ def plot_performance(
         type_info = "mean"
 
         list_info_time = {
-            k: {
+            # Remapped in upper case as the dataset proprietary name
+            k
+            if k != "compas"
+            else "COMPAS": {
                 sup: dataset_info[sup][info][type_info]
                 for sup in sorted(dataset_info.keys())
             }
@@ -221,7 +224,10 @@ def plot_performance(
 
         figure_name = os.path.join(output_fig_dir, "figure_7.pdf")
         list_info_FP = {
-            k: {
+            # Remapped in upper case as the dataset proprietary name
+            k
+            if k != "compas"
+            else "COMPAS": {
                 sup: dataset_info[sup][info][type_info]
                 for sup in sorted(dataset_info.keys())
             }
