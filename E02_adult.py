@@ -434,8 +434,8 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--retrain",
-        action="store_true",
-        help="specify not_show_figures to vizualize the plots. The results are stored into the specified outpur dir.",
+        action="store_false",
+        help="specify --retrain to retrain the model.",
     )
 
     args = parser.parse_args()

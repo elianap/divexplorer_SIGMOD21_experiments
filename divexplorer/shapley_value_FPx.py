@@ -408,7 +408,10 @@ def plotComparisonShapleyValues(
         linewidth=linewidth,
         edgecolor="#0C4A5B",
     )
-    plt.yticks(range(len(sh_score_1)), list(sh_score_1.keys()))
+
+    ax1.set_yticks(range(len(sh_score_1)))
+    ax1.set_yticklabels(list(sh_score_1.keys()))
+
     if len(title) > 1:
         ax1.set_title(title[0])
 
@@ -421,7 +424,9 @@ def plotComparisonShapleyValues(
         linewidth=linewidth,
         edgecolor="#0C4A5B",
     )
-    plt.yticks(range(len(sh_score_2)), list(sh_score_2.keys()))
+    ax2.set_yticks(range(len(sh_score_2)))
+    ax2.set_yticklabels(list(sh_score_2.keys()))
+
     if len(title) > 1:
         ax2.set_title(f"{title[1]}")
     fig.tight_layout(pad=pad)
