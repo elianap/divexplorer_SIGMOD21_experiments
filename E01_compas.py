@@ -569,7 +569,7 @@ def compas_experiments(
         from utils_print import printableAll
 
         df_merged = printableAll(
-            [corrective_pr_fnr, corrective_pr_fnr], rename_cols=False
+            [corrective_pr_fpr, corrective_pr_fnr], rename_cols=False
         )
 
         outputdir = os.path.join(main_output_dir, "tables")
