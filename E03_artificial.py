@@ -98,7 +98,7 @@ def artificial_experiments(
 
         Path(output_dir_figs).mkdir(parents=True, exist_ok=True)
 
-        output_file_name = os.path.join(output_dir_figs, "figure_4.pdf")
+        output_file_name = os.path.join(output_dir_figs, "figure_4")
 
         print("-----------------------------------------------------------------------")
 

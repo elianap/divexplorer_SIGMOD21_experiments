@@ -251,7 +251,7 @@ def adult_experiments(
 
         outputdir = os.path.join(main_output_dir, "figures")
         Path(outputdir).mkdir(parents=True, exist_ok=True)
-        output_file_name = os.path.join(outputdir, "figure_9.pdf")
+        output_file_name = os.path.join(outputdir, "figure_9")
 
         global_shapley_fpr = fp_divergence_fpr.computeGlobalShapleyValue()
 
