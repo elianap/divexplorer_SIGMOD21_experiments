@@ -301,6 +301,55 @@ def adult_experiments(
 
         print("-----------------------------------------------------------------------")
 
+        outputdir_dict = os.path.join(main_output_dir, "dict")
+        Path(outputdir_dict).mkdir(parents=True, exist_ok=True)
+
+        # Save the result
+        import json
+
+        tmp_val = abbreviateDict(global_shapley_positive_fpr_top, abbreviations)
+        tmp_val = {list(k)[0]: v for k, v in tmp_val.items()}
+        print(tmp_val)
+        with open(
+            os.path.join(outputdir_dict, "global_shapley_positive_fpr_top.json"), "w"
+        ) as fp:
+            json.dump(tmp_val, fp)
+        import json
+
+        tmp_val = abbreviateDict(individual_shapley_top, abbreviations)
+        tmp_val = {list(k)[0]: v for k, v in tmp_val.items()}
+
+        with open(
+            os.path.join(outputdir_dict, "individual_shapley_top.json"), "w"
+        ) as fp:
+            json.dump(tmp_val, fp)
+        import json
+
+        tmp_val = normalizeMax(
+            abbreviateDict(global_shapley_positive_fpr_top, abbreviations)
+        )
+        tmp_val = {list(k)[0]: v for k, v in tmp_val.items()}
+
+        with open(
+            os.path.join(
+                outputdir_dict, "global_shapley_positive_fpr_top_normalized.json"
+            ),
+            "w",
+        ) as fp:
+            json.dump(
+                tmp_val,
+                fp,
+            )
+        import json
+
+        tmp_val = normalizeMax(abbreviateDict(individual_shapley_top, abbreviations))
+        tmp_val = {list(k)[0]: v for k, v in tmp_val.items()}
+
+        with open(
+            os.path.join(outputdir_dict, "individual_shapley_top_normalized.json"), "w"
+        ) as fp:
+            json.dump(tmp_val, fp)
+
         # Plot (and visual comparison) of
         # - global Shapley value for the FNR divergence
         # - individual divergence for the FNR divergence of individual items
