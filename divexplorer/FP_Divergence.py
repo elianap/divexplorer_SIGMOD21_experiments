@@ -555,6 +555,8 @@ class FP_Divergence:
     ):
         import matplotlib.pyplot as plt
 
+        fig, ax = plt.subplots(1, 1, figsize=sizeFig, dpi=100)
+
         if shapley_values is None and itemset is None:
             # todo
             print("Error")
@@ -568,7 +570,7 @@ class FP_Divergence:
         metric = f"{div_name}_{{{self.metric_name}}}" if metric is None else metric
         if sortedF:
             sh_plt = {k: v for k, v in sorted(sh_plt.items(), key=lambda item: item[1])}
-        plt.barh(
+        ax.barh(
             range(len(sh_plt)),
             sh_plt.values(),
             height=height,
@@ -577,17 +579,19 @@ class FP_Divergence:
             linewidth=linewidth,
             edgecolor="#0C4A5B",
         )
-        plt.yticks(range(len(sh_plt)), list(sh_plt.keys()), fontsize=labelsize)
-        plt.xticks(fontsize=labelsize)
+        ax.set_yticks(range(len(sh_plt)), minor=False)
+        ax.set_yticklabels(list(sh_plt.keys()), minor=False)
+        ax.tick_params(axis="y", labelsize=labelsize)
+
         if xlabel:
-            plt.xlabel(
-                f"${div_name}({i_name}|{p_name})$", size=labelsize
-            )  # - Divergence contribution
-        # title="Divergence" if title is None else title
+            ax.set_xlabel(f"${div_name}({i_name}|{p_name})$", size=labelsize)
+            # - Divergence contribution
+
         title = "" if title is None else title
         title = f"{title} ${metric}$" if metric != "" else title  # Divergence
-        plt.title(title, fontsize=titlesize)
-        plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
+
+        ax.set_title(title, fontsize=titlesize)
+        # plt.rcParams["figure.figsize"], plt.rcParams["figure.dpi"] = sizeFig, 100
         if saveFig:
             nameFig = "./shap.pdf" if nameFig is None else nameFig
             # plt.savefig(f"{nameFig}", bbox_inches="tight", pad=0.05)

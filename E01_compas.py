@@ -604,6 +604,7 @@ def compas_experiments(
             saveFig=True,
             nameFig=output_file_name,
             show_figure=show_figures,
+            sizeFig=(2, 1.5),
         )
 
         caption_str = (
