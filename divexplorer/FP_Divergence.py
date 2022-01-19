@@ -244,13 +244,38 @@ class FP_Divergence:
         Th_divergence=None,
         getLower=False,
         getAllGreaterTh=False,
+        abbreviated=False,
+        abbreviations={},
+        use_order=None,
         **kwargs,
     ):
+        # Abbreviate for visualization purposes
+        if abbreviated and abbreviations:
+
+            def abbreviate(x, abbreviations={}):
+                for k, v in abbreviations.items():
+                    x = x.replace(k, v)
+                return x
+
+            score_abbreviated = {}
+            for l, dict_items in self.itemset_divergence.items():
+                score_abbreviated[l] = {
+                    frozenset([abbreviate(v, abbreviations) for v in list(k)]): v
+                    for k, v in dict_items.items()
+                }
+            info_lattice = getLatticeItemsetMetric(
+                frozenset([abbreviate(v, abbreviations) for v in list(itemset)]),
+                score_abbreviated,
+                getLower=getLower,
+                use_order=use_order,
+            )
+        else:
+            info_lattice = getLatticeItemsetMetric(
+                itemset, self.itemset_divergence, getLower=getLower, use_order=use_order
+            )
 
         nameTitle = f"Metric: {self.metric}"
-        info_lattice = getLatticeItemsetMetric(
-            itemset, self.itemset_divergence, getLower=getLower
-        )
+
         color_groups = {}
         nodes = info_lattice["itemset_metric"]
         # Save info node - parent source
@@ -288,7 +313,7 @@ class FP_Divergence:
         #     "all_greater": "#580023",
         # }
 
-        olor_map = {
+        color_map = {
             "normal": "#f2f2f2",  # d6f5d6",  # dc8cfea",
             "lower": "lightblue",
             "greater": "#ff6666",
@@ -301,7 +326,7 @@ class FP_Divergence:
             color_groups,
             metric=nameTitle,
             # UPDATED
-            # color_map=color_map,
+            color_map=color_map,
             **kwargs,
         )
 

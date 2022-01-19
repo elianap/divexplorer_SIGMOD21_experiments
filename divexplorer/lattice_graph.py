@@ -13,7 +13,9 @@ def getItemsetMetricScore(item_score, itemset_i):
     return item_score[len(itemset_i)][itemset_i]
 
 
-def getLatticeItemsetMetric(itemset, item_score, rounded=4, getLower=False):
+def getLatticeItemsetMetric(
+    itemset, item_score, rounded=4, getLower=False, use_order=None
+):
     powerset_itemOfI = powerset(itemset)
     info_new = (
         {"lattice_graph": {}, "itemset_metric": {}, "lower": []}
@@ -34,6 +36,17 @@ def getLatticeItemsetMetric(itemset, item_score, rounded=4, getLower=False):
                         item_score, k
                     ):
                         info_new["lower"].append(i)
+            if use_order:
+                if k in use_order:
+
+                    if k == frozenset():
+                        list_root = info_new["lattice_graph"][k]
+                        use_order_fr = [frozenset([item]) for item in use_order[k]]
+                        info_new["lattice_graph"][k] = [
+                            item for item in use_order_fr if item in list_root
+                        ]
+                        if set(info_new["lattice_graph"][k]) != set(list_root):
+                            raise ValueError("Wrong parameter")
     return info_new
 
 
@@ -476,7 +489,7 @@ def plotLatticeGraph_colorGroups(
     round_v=3,
     width=None,
     height=None,
-    showGrid=True,
+    showGrid=False,  # Grid not visualized as default
     plot_bgcolor="rgb(248,248,248)",
     displayItemsetLabels=False,
     font_size_ItemsetLabels=10,
@@ -650,6 +663,21 @@ def plotLatticeGraph_colorGroups(
                 p_ref_x = 0.2 if order_mapping[itemset] % 2 == 0 else 0.25
                 p_ref_y = -0.045
                 get_name = lambda v: ", ".join(sorted(list(v)))
+                # Visualization purposes
+
+                if len(itemset) == 1:
+                    ax_v = get_x_pos(
+                        p[0], p_ref_x + 0.01 * (font_size_ItemsetLabels - 10)
+                    )
+                    ay_v = get_y_pos(p[1], p_ref_y)
+
+                elif itemset in itemsetsOfInterest:
+                    p_ref_xofI = 0.2 if order_mapping[itemset] % 2 == 0 else 0.35
+                    ax_v = get_x_pos(p[0], p_ref_xofI - 0.7)
+                    ay_v = get_y_pos(p[1], -0.06)
+                else:
+                    ax_v = get_x_pos(p[0], -0.7)
+                    ay_v = get_y_pos(p[1], -0.03)
 
                 fig.add_annotation(
                     x=p[0],
@@ -660,10 +688,12 @@ def plotLatticeGraph_colorGroups(
                     align="left",
                     axref="x",
                     ayref="y",
-                    ax=get_x_pos(p[0], p_ref_x + 0.01 * (font_size_ItemsetLabels - 10))
-                    if len(itemset) == 1
-                    else get_x_pos(p[0], -0.7),
-                    ay=get_y_pos(p[1], p_ref_y if len(itemset) == 1 else -0.03),
+                    ax=ax_v,
+                    ay=ay_v,
+                    # ax=get_x_pos(p[0], p_ref_x + 0.01 * (font_size_ItemsetLabels - 10))
+                    # if len(itemset) == 1
+                    # else get_x_pos(p[0], -0.7),
+                    # ay=get_y_pos(p[1], p_ref_y if len(itemset) == 1 else -0.03),
                     showarrow=True,
                     font=dict(
                         # family="Courier New, monospace",

@@ -125,11 +125,11 @@ def adult_experiments(
         dataset_name=dataset_name,
     )
 
+    # Frequent pattern divergence extraction
+
+    FP_fm = fp_diver.getFrequentPatternDivergence(min_support=min_sup)
+
     if "table_5" in compute_results:
-
-        # Frequent pattern divergence extraction
-
-        FP_fm = fp_diver.getFrequentPatternDivergence(min_support=min_sup)
 
         n_rows = 3
 
@@ -247,6 +247,8 @@ def adult_experiments(
 
         # Derive the divergence w.r.t. the FPR
 
+        from divexplorer.FP_Divergence import FP_Divergence
+
         fp_divergence_fpr = FP_Divergence(FP_fm, "d_fpr")
 
         outputdir = os.path.join(main_output_dir, "figures")
@@ -321,6 +323,8 @@ def adult_experiments(
 
     if "table_6" in compute_results:
 
+        from divexplorer.FP_Divergence import FP_Divergence
+
         # Derive the divergence w.r.t. the FPR
 
         fp_divergence_fpr = FP_Divergence(FP_fm, "d_fpr")
@@ -365,6 +369,8 @@ def adult_experiments(
 
     if "figure_11" in compute_results:
 
+        from divexplorer.FP_Divergence import FP_Divergence
+
         # Derive the divergence w.r.t. the FPR
 
         fp_divergence_fnr = FP_Divergence(FP_fm, "d_fnr")
@@ -389,6 +395,11 @@ def adult_experiments(
                 frozenset({"capital-loss=0", "capital-gain=0", "education=Bachelors"}),
                 frozenset({"capital-loss=0", "capital-gain=0", "PROVA"}),
             ]
+            itemsetsOfInterest = [
+                frozenset({"loss=0", "gain=0", "workcl=Private"}),
+                frozenset({"gain=0", "loss=0", "edu=Bachelors"}),
+            ]
+
             fig1 = fp_divergence_fnr.plotLatticeItemset(
                 S_i,
                 Th_divergence=0.15,
@@ -400,6 +411,13 @@ def adult_experiments(
                 font_size_div=12,
                 font_size_ItemsetLabels=13,
                 itemsetsOfInterest=itemsetsOfInterest,
+                abbreviated=True,
+                abbreviations=abbreviations,
+                plot_bgcolor="#FFFFFF",
+                # To fix the order in the visualization, it is random otherwise
+                use_order={
+                    frozenset(): ["edu=Bachelors", "gain=0", "loss=0", "workcl=Private"]
+                },
             )
 
             fig1.write_image(output_file_name, width=600, height=330)
