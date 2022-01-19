@@ -78,33 +78,39 @@ def adult_experiments(
     # On the other hand, if the labels are fixed, our results are fixed (no randomicity in our process)
 
     # If already available, we use the processed dataset, which is already discretized
-    if use_processed and os.path.isfile(adult_processed_file):
-        X_discretized = pd.read_csv(adult_processed_file)
-        class_map = {"N": "<=50K", "P": ">50K"}
-    else:
-        # Otherwise we do the entire process of importing the original data and process them
+    # if use_processed and os.path.isfile(adult_processed_file):
+    X_discretized = pd.read_csv(adult_processed_file)
+    class_map = {"N": "<=50K", "P": ">50K"}
 
-        dfI, class_map = import_process_adult(inputDir=DATASET_DIRECTORY)
-        dfI.reset_index(drop=True, inplace=True)
+    # Temporary commentented for debug purposes
 
-        # Train and predict using random forest classifier and cross validation
+    # if use_processed and os.path.isfile(adult_processed_file):
+    #     X_discretized = pd.read_csv(adult_processed_file)
+    #     class_map = {"N": "<=50K", "P": ">50K"}
+    # else:
+    #     # Otherwise we do the entire process of importing the original data and process them
 
-        type_cl = "RF"
-        labelEncoding = True
+    #     dfI, class_map = import_process_adult(inputDir=DATASET_DIRECTORY)
+    #     dfI.reset_index(drop=True, inplace=True)
 
-        # Cross validation
-        X_FP, y_FP, y_predicted, y_predict_prob, encoders, indexes_FP = train_predict(
-            dfI, type_cl=type_cl, labelEncoding=labelEncoding, validation="cv"
-        )
-        attributes = dfI.columns.drop("class")
+    #     # Train and predict using random forest classifier and cross validation
 
-        # We discretize the data
-        X_discretized = discretize(
-            dfI, attributes=attributes, indexes_FP=indexes_FP, dataset_name=dataset_name
-        )
+    #     type_cl = "RF"
+    #     labelEncoding = True
 
-        X_discretized["class"] = y_FP["class"]
-        X_discretized["predicted"] = y_predicted
+    #     # Cross validation
+    #     X_FP, y_FP, y_predicted, y_predict_prob, encoders, indexes_FP = train_predict(
+    #         dfI, type_cl=type_cl, labelEncoding=labelEncoding, validation="cv"
+    #     )
+    #     attributes = dfI.columns.drop("class")
+
+    #     # We discretize the data
+    #     X_discretized = discretize(
+    #         dfI, attributes=attributes, indexes_FP=indexes_FP, dataset_name=dataset_name
+    #     )
+
+    #     X_discretized["class"] = y_FP["class"]
+    #     X_discretized["predicted"] = y_predicted
 
     # # Extract divergence
 
