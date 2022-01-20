@@ -477,8 +477,8 @@ def adult_experiments(
             )
             import plotly.io as pio
 
-            pio.orca.config.server_url = f"http://localhost:{localhost_number}"
-            pio.orca.ensure_server()
+            # pio.orca.config.server_url = f"http://localhost:{localhost_number}"
+            # pio.orca.ensure_server()
             fig1.write_image(output_file_name, width=600, height=330)
 
 
