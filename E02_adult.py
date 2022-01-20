@@ -476,7 +476,10 @@ def adult_experiments(
                 },
             )
 
-            fig1.write_image(output_file_name, width=600, height=330)
+            import plotly.io as pio
+
+            pio.kaleido.scope.default_format = "pdf"
+            fig1.write_image(output_file_name, width=600, height=330, engine="kaleido")
 
 
 import argparse
