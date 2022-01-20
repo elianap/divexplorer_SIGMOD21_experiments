@@ -9,6 +9,7 @@ def adult_experiments(
     dataset_dir=DATASET_DIRECTORY,
     show_figures=True,
     use_processed=True,
+    localhost_number=9091,
 ):
 
     import numpy as np
@@ -474,7 +475,10 @@ def adult_experiments(
                     frozenset(): ["edu=Bachelors", "gain=0", "loss=0", "workcl=Private"]
                 },
             )
+            import plotly.io as pio
 
+            pio.orca.config.server_url = f"http://localhost:{localhost_number}"
+            pio.orca.ensure_server()
             fig1.write_image(output_file_name, width=600, height=330)
 
 
