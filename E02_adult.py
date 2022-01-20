@@ -475,17 +475,7 @@ def adult_experiments(
                     frozenset(): ["edu=Bachelors", "gain=0", "loss=0", "workcl=Private"]
                 },
             )
-            import plotly.io as pio
 
-            # pio.orca.config.server_url = f"http://localhost:{localhost_number}"
-            # pio.orca.ensure_server()
-            # Disable the orca response timeout.
-            import plotly.io._orca
-            import retrying
-
-            unwrapped = plotly.io._orca.request_image_with_retrying.__wrapped__
-            wrapped = retrying.retry(wait_random_min=1000)(unwrapped)
-            plotly.io._orca.request_image_with_retrying = wrapped
             fig1.write_image(output_file_name, width=600, height=330)
 
 
