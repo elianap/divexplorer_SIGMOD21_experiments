@@ -43,10 +43,7 @@ Once the env is activated, we install the dependencies.
 ```shell
 pip install -r ./requirements.txt
 ```
-In the case you use MAC OS, you need also to run:
-```shell
-conda install -c plotly plotly-orca
-```
+
 
 ## Project structure
 
