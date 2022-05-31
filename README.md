@@ -14,7 +14,7 @@ DivExplorer is a tool for analyzing datasets and finding subgroups of data where
 If you are interested in using DivExplorer, please refer to **[our repository](https://github.com/elianap/divexplorer)** and the corresponding **[PyPi package](https://github.com/elianap/divexplorer)**.
 
 For all the details, you can refer to our [paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284) or our [project page](https://divexplorer.github.io). For a quick overview, you can refer to this video: 
-<a href="https://www.youtube.com/watch?v=C5IUNvgWHhU" target="_blank"><img src="https://i9.ytimg.com/vi/C5IUNvgWHhU/sddefault.jpg?v=62968ee4&sqp=COCf2pQG&rs=AOn4CLAtqheYARHgQ4GpcTFMhISXNZoBzQ" width="450" alt="DivExplorer short video"/></a>
+<a href="https://www.youtube.com/watch?v=C5IUNvgWHhU" target="_blank"><img src="https://github.com/elianap/divexplorer_SIGMOD21_experiments/blob/main/doc/thumb-divexplorer-video.png" width="450" alt="DivExplorer short video"/></a>
 
 
 ## Setting the environment
@@ -106,7 +106,7 @@ The scripts process the [Adult](https://archive.ics.uci.edu/ml/datasets/adult), 
 
 ## Running the experiments
 
-You can refer to the reproducibility report available in the doc folder.
+You can refer to the [reproducibility report](https://github.com/elianap/divexplorer_SIGMOD21_experiments/blob/main/doc/Reproducibility_report_DivExplorer_SIGMOD_2021.pdf) available in the doc folder.
 
 ### Running all experiments
 
