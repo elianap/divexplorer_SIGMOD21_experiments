@@ -10,11 +10,10 @@ This repository contains the code to run and reproduce the experiments reported 
 This is a static dump of the code to be uploaded to the ACM website and permenently hosted. It contains the scripts to directly reproduce the results reported in the paper.
 Please refer to our **[Github Repository](https://github.com/elianap/divexplorer)** for all the updates.
 
-DivExplorer is a tool for analyzing datasets and finding subgroups of data where a model behaves differently than on the overall data. We reveal the contribution of different attribute values to the divergent behavior with the notion of Shapley value.
-
+DivExplorer is a tool for analyzing datasets and finding subgroups of data where a model behaves differently than on the overall data. 
 If you are interested in using DivExplorer, please refer to **[our repository](https://github.com/elianap/divexplorer)** and the corresponding **[PyPi package](https://github.com/elianap/divexplorer)**.
 
-For all the details, you can refer to our [paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284) or our [project page](https://divexplorer.github.io). For a quick overview, you can refer to this video: 
+For all the details, you can refer to our [paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284) or our [project page](https://divexplorer.github.io). For a quick overview, you can refer to this [video](https://www.youtube.com/watch?v=C5IUNvgWHhU): 
 
 <a href="https://www.youtube.com/watch?v=C5IUNvgWHhU" target="_blank"><img src="https://raw.githubusercontent.com/elianap/divexplorer_SIGMOD21_experiments/main/doc/thumb-divexplorer-video.png" width="450" alt="DivExplorer short video"/></a>
 
@@ -108,7 +107,7 @@ The scripts process the [Adult](https://archive.ics.uci.edu/ml/datasets/adult), 
 
 ## Running the experiments
 
-You can refer to the [reproducibility report](https://github.com/elianap/divexplorer_SIGMOD21_experiments/blob/main/doc/Reproducibility_report_DivExplorer_SIGMOD_2021.pdf) available in the doc folder.
+You can refer to the [reproducibility report](https://github.com/elianap/divexplorer_SIGMOD21_experiments/blob/main/doc/Reproducibility_report_DivExplorer_SIGMOD_2021.pdf), available in the doc folder, for all the details.
 
 ### Running all experiments
 
