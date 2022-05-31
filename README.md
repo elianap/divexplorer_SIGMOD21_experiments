@@ -1,14 +1,27 @@
-# DivExplorer - SIGMOD 2021 - Reproducibility report
+# Artifacts of Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence
 
-This repository contains the code to run and reproduce the experiments present in our **[SIGMOD 2021 paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)** "Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence".
+[![SIGMOD](https://img.shields.io/badge/SIGMOD-2021-blue.svg)](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)
+[![Latest PyPI version](https://img.shields.io/pypi/v/divexplorer.svg)](https://pypi.python.org/pypi/divexplorer)
+[![Github repository](https://img.shields.io/badge/github-repository-success)](https://github.com/elianap/divexplorer)
 
-If you are interested in using DivExplorer, please refer to **[this repository](https://github.com/elianap/divexplorer)** and the corresponding **[PyPi package](https://github.com/elianap/divexplorer)**.
+
+This repository contains the code to run and reproduce the experiments reported in our SIGMOD 2021 paper **[Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)**.
+
+This is a static dump of the code to be uploaded to the ACM website and permenently hosted. It contains the scripts to directly reproduce the results reported in the paper.
+Please refer to our **[Github Repository](https://github.com/elianap/divexplorer)** for all the updates.
+
+DivExplorer is a tool for analyzing datasets and finding subgroups of data where a model behaves differently than on the overall data. We reveal the contribution of different attribute values to the divergent behavior with the notion of Shapley value.
+If you are interested in using DivExplorer, please refer to **[our repository](https://github.com/elianap/divexplorer)** and the corresponding **[PyPi package](https://github.com/elianap/divexplorer)**.
+
+For all the details, you can refer to our [paper](https://dl.acm.org/doi/abs/10.1145/3448016.3457284) or our [project page](https://divexplorer.github.io). For a quick overview, you can refer to this video: 
+<a href="https://www.youtube.com/watch?v=C5IUNvgWHhU" target="_blank"><img src="https://i9.ytimg.com/vi/C5IUNvgWHhU/sddefault.jpg?v=62968ee4&sqp=COCf2pQG&rs=AOn4CLAtqheYARHgQ4GpcTFMhISXNZoBzQ" width="450" alt="DivExplorer short video"/></a>
+
 
 ## Setting the environment
 
 DivExplorer is implemented in python.
 
-We can firstly set an environment. In following, there are the instructions using conda or vend.
+We can firstly set an environment. In following, there are the instructions using conda or venv.
 
 Using conda
 
@@ -39,7 +52,7 @@ source ~/venv-environments/divexplorer-exp/bin/activate
 Once the env is activated, we install the dependencies.
 
 
-# Install deps
+## Install deps
 ```shell
 pip install -r ./requirements.txt
 ```
@@ -54,6 +67,8 @@ pip install -r ./requirements.txt
     │  └── processed          <- Processed datasets.
     │
     ├── divexplorer           <- The source code of the DivExplorer algorithm
+    │    
+    ├── doc                   <- Documentation with reproducibility report
     │
     ├── requirements.txt      <- The requirements file for reproducing the analysis environment
     │                         
@@ -86,7 +101,12 @@ pip install -r ./requirements.txt
     │                         
     └── E07_survey.py         <- Output the survey results and plot
 
+
+The scripts process the [Adult](https://archive.ics.uci.edu/ml/datasets/adult), [Heart](https://archive.ics.uci.edu/ml/datasets/heart+disease), [German](https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)), [Bank](https://archive.ics.uci.edu/ml/datasets/bank+marketing) UCI datasets and  Probublica dataset [COMPAS](https://github.com/propublica/compas-analysis/blob/master/compas-scores-two-years.csv). 
+
 ## Running the experiments
+
+You can refer to the reproducibility report available in the doc folder.
 
 ### Running all experiments
 
@@ -129,14 +149,32 @@ python E02_adult.py
 
 The script generates all the experiments associated with the adult dataset. Specifically, it generates "table_5", "table_6",  "figure_8", "figure_9", "figure_11" of the paper.
 
+
+
+## Citation
+If you use the DivExplorer package or this code in your work, please cite: 
+```bibtex
+@inproceedings{pastor2021looking,
+  title={Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence},
+  author={Pastor, Eliana and de Alfaro, Luca and Baralis, Elena},
+  booktitle={Proceedings of the 2021 International Conference on Management of Data},
+  url = {https://doi.org/10.1145/3448016.3457284},
+  pages={1400--1412},
+  year={2021}, 
+  numpages = {13} 
+}
+```
+
 ## Contributors
 
 [Eliana Pastor][eliana], [Elena Baralis][elena] and [Luca de Alfaro][luca].
 
 
+For any clarification, comments, or suggestion please contact [Eliana Pastor][eliana]
 
-[eliana]: https://smartdata.polito.it/members/eliana-pastor/ "Eliana Pastor"
+[eliana]: https://github.com/elianap "Eliana Pastor"
 
 [elena]: https://smartdata.polito.it/members/elena-baralis/ "Elena Baralis"
 
 [luca]: https://luca.dealfaro.com/ "Luca de Alfaro"
+
