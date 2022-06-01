@@ -1,4 +1,4 @@
-# Artifacts of Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence
+# Artifacts of "Looking for Trouble: Analyzing Classifier Behavior via Pattern Divergence"
 
 [![SIGMOD](https://img.shields.io/badge/SIGMOD-2021-blue.svg)](https://dl.acm.org/doi/abs/10.1145/3448016.3457284)
 [![Latest PyPI version](https://img.shields.io/pypi/v/divexplorer.svg)](https://pypi.python.org/pypi/divexplorer)
@@ -79,9 +79,7 @@ pip install -r ./requirements.txt
     │
     ├── NB1_compas.ipynb      <- Notebook using the COMPAS dataset
     ├── NB2_adult.ipynb       <- Notebook using the COMPAS dataset
-    │
-    ├── prepare_venv.txt      <- Instrunction to set up the environment via venv
-    │                         
+    │                 
     ├── prepare_conda.txt     <- Instrunction to set up the environment via conda
     │                         
     ├── run_experiments.py    <- Run ALL experiments, producing all the figures and tables of the paper
